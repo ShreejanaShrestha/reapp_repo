@@ -4,10 +4,10 @@ import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 //components
-import Header from './components/Header'
+//import Header from './components/Header'
 
 //components
-import Body from './components/Body'
+//import Body from './components/Body'
 
 import Login from './components/login'
  
