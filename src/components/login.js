@@ -61,7 +61,9 @@ render () {
 					/><br />
 				</CardText>
 				<CardActions style={this.floatActionButtonRight}>    
-					<RaisedButton label="Submit" primary={true} onClick={ () => this.submitForm() }/>
+					<RaisedButton label="Submit" primary={true} 
+					style={ style }
+					onClick={ () => this.submitForm() }/>
 				</CardActions>
 			</Card>
 		</div>
@@ -80,6 +82,30 @@ render () {
 	}
 
 	submitForm() {
+		fetch('https://api.rebrandly.com/v1/account' ,
+        {
+            headers: {
+                apikey: this.state.apikey
+            }
+        })
+        .then(response => {
+            if(response.ok) {
+                response.json()
+                    .then(data => {
+                        console.log(data)
+                        if(data.email===this.state.email) {
+                            console.log("Right User")
+                        }
+                        else {
+                            alert("Not Autorized User")
+                        }
+                        })
+            }
+            else
+            {
+                alert(response.statusText)
+            }
+        })
 
 	}
 
