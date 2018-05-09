@@ -17,54 +17,71 @@ class login extends Component {
     display: "flex",
     justifyContent: "center",
     alignItems: "center"
-  }
+}
 
-  cardWidth = {
-    width: "500px"
-  }
+cardWidth = {
+width: "500px"
+}
 
-  floatActionButtonRight = {
-    float: "right"
+floatActionButtonRight = {
+float: "right"
+}
+constructor (props) {
+	super(props)
+	this.state= {
+		email: '',
+		apikey: ''
 	}
-	constructor (props) {
-		super(props)
-		this.state= {
-			email: '',
-			apikey: ''
-		}
-	}
-	 
-	render () {
-		return (
-			<div style={this.alignCenter}>
-				<Card style={this.cardWidth}>
-					<CardHeader
-					  title="Rebrandly"
-					  subtitle="View on your rebrandly resource!!!"
-					  avatar={logo}
-					/>
-          <CardTitle title="Login"/>
-			<CardText>
-				<TextField
-				      type="email"
-					  fullWidth={true}
-					  floatingLabelText="Email Address"
-				    /><br />
-				<TextField 
-					  type="password" 
-					  fullWidth={true} 
-					  floatingLabelText="Api Key"
-					  
-				    /><br />
-			</CardText>
-			<CardActions style={this.floatActionButtonRight}>    
-				<RaisedButton label="Submit" primary={true} />
+}
+	
+render () {
+	return (
+		<div style={this.alignCenter}>
+			<Card style={this.cardWidth}>
+				<CardHeader
+					title="Rebrandly"
+					subtitle="View on your rebrandly resource!!!"
+					avatar={logo}
+				/>
+				<CardTitle title="Login"/>
+				<CardText>
+					<TextField
+						type="email"
+						fullWidth={true}
+						floatingLabelText="Email Address"
+						value={this.state.email}
+						onChange={ (e) => this.onChangeEmail(e) }
+					/><br />
+					<TextField 
+						type="password" 
+						fullWidth={true} 
+						floatingLabelText="Api Key"
+						value={this.state.apikey}
+						onChange={ (e) => this.onChangeApiKey(e)}
+					/><br />
+				</CardText>
+				<CardActions style={this.floatActionButtonRight}>    
+					<RaisedButton label="Submit" primary={true} onClick={ () => this.submitForm() }/>
 				</CardActions>
 			</Card>
-			</div>
-			)
+		</div>
+		)
 	}
-	
+	onChangeEmail(e) {
+		this.setState({
+			email: e.target.value
+		})
+	}
+
+	onChangeApiKey(e) {
+		this.setState({
+			apikey: e.target.value
+		})
+	}
+
+	submitForm() {
+
+	}
 
 
 }
