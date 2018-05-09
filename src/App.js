@@ -7,17 +7,19 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 //import Header from './components/Header'
 
 //components
-//import Body from './components/Body'
+//import Body from './components/Body';
 
-import Login from './components/login'
+import Login from './components/login' ;
+
+
  
  class App extends Component {
   render () {
     return (
         <MuiThemeProvider>
-         
           
-          <Login />
+          
+           <Login />
         </MuiThemeProvider>
       )
   }
