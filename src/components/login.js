@@ -94,7 +94,7 @@ render () {
                     .then(data => {
                         console.log(data)
                         if(data.email===this.state.email) {
-                            console.log("Right User")
+                            this.props.history.push('/dashboard')
                         }
                         else {
                             alert("Not Autorized User")
@@ -106,9 +106,17 @@ render () {
                 alert(response.statusText)
             }
         })
-
-	}
+		
+    }
+	componentWillMount() {
+    	  const savedApikey = sessionStorage.getItem('apikey',this.state.apikey)
+    	    if(savedApikey) {
+		      console.log("yes")
+          		this.props.history.push('/dashboard')
+        		}
+     	 }	
 
 
 }
+
 export default login;

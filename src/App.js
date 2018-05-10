@@ -12,14 +12,25 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Login from './components/login' ;
 
 
+import Dashboard from './components/Dashboard';
+
+import { BrowserRouter, Switch } from 'react-router-dom';
+import Route from 'react-router/Route';
+
  
  class App extends Component {
   render () {
     return (
         <MuiThemeProvider>
+          <BrowserRouter>
+            <Switch>
+              <Route path="/login" component={ Login }/>
+               
+              <Route path="/dashboard" component={ Dashboard }/>
+            </Switch>
+         </BrowserRouter>
+
           
-          
-           <Login />
         </MuiThemeProvider>
       )
   }
